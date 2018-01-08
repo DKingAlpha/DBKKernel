@@ -1,0 +1,89 @@
+;
+; DBK.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=DBK.cat
+DriverVer = 01/07/2018,23.23.12.389
+
+[DestinationDirs]
+DefaultDestDir = 12
+DBK_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+dbk64.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%DBK.DeviceDesc%=DBK_Device, Root\DBK ; TODO: edit hw-id
+
+[DBK_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+dbk64.sys
+
+;-------------- Service installation
+[DBK_Device.NT.Services]
+AddService = DBK,%SPSVCINST_ASSOCSERVICE%, DBK_Service_Inst
+
+; -------------- DBK driver install sections
+[DBK_Service_Inst]
+DisplayName    = %DBK.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\dbk64.sys
+
+;
+;--- DBK_Device Coinstaller installation ------
+;
+
+[DBK_Device.NT.CoInstallers]
+AddReg=DBK_Device_CoInstaller_AddReg
+CopyFiles=DBK_Device_CoInstaller_CopyFiles
+
+[DBK_Device_CoInstaller_AddReg]
+;
+
+
+[DBK_Device_CoInstaller_CopyFiles]
+;
+
+
+[DBK_Device.NT.Wdf]
+KmdfService =  DBK, DBK_wdfsect
+[DBK_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="DKing" ;TODO: Replace with your manufacturer name
+ClassName="DBK" ; TODO: edit ClassName
+DiskName = "DBK Installation Disk"
+DBK.DeviceDesc = "DBK Device"
+DBK.SVCDESC = "DBK Service"
