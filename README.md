@@ -1,7 +1,10 @@
-# DBK
-This is a fixed version of DBK (known as dbk64.sys, dbk32.sys).
+# DBKKernel
 
-Compatible with VS2017 together with WDK for Windows 10 ver 1709.
+This is a fixed version of DBKKernel (known as dbk64.sys, dbk32.sys).
+
+DBKKernel is a subproject in (Cheat Engine)[https://github.com/cheat-engine/cheat-engine]
+
+This fixed project is compatible with VS2017 together with WDK for Windows 10 ver 1709.
 
 ### Fix Content
 
@@ -14,6 +17,7 @@ Fix structure member errors related to [wdm.h](file:///C:/Program%20Files%20(x86
 i386/noexceptiona.asm is tweaked due to error `Undefined Symbol`. Not sure if it's correct.
 
 ### Compile
+
 Prequist: VS2017
 
 Install WDK from [Install WDK for Windows 10, version 1709)](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)
@@ -29,6 +33,6 @@ To use this driver without any system modification, you will need to cross sign 
 
 To use this driver in Windows 10 x64 without cross sign, you either need to disable "Driver Signature Enforcement" (one-time), or enable TestMode (permanent)
 
-## Credit
+### Credit
 
-All credits to Cheat Engine and whoever wrote the driver.
+All credits to Cheat Engine and whoever wrote the driver.(Dark Byte?)
