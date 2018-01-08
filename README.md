@@ -2,7 +2,7 @@
 
 This is a fixed version of DBKKernel (known as dbk64.sys, dbk32.sys).
 
-DBKKernel is a subproject in (Cheat Engine)[https://github.com/cheat-engine/cheat-engine]
+DBKKernel is a subproject in [Cheat Engine](https://github.com/cheat-engine/cheat-engine)
 
 This fixed project is compatible with VS2017 together with WDK for Windows 10 ver 1709.
 
