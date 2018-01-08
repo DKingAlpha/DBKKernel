@@ -20,7 +20,7 @@ i386/noexceptiona.asm is tweaked due to error `Undefined Symbol`. Not sure if it
 
 Prequist: VS2017
 
-Install WDK from [Install WDK for Windows 10, version 1709)](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)
+Install WDK from [Install WDK for Windows 10, version 1709](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)
 
 Just ... Open project and go ahead for x64.
 
